@@ -15,9 +15,9 @@ function App() {
   })
   return (
     <div className="App">
-      {/* {
+      {
         isAuthenticated != true ? (<Login setIsAuthenticated={setIsAuthenticated}/>) :
-          (<div> */}
+          (<div>
             <Sidebar />
 
             <BrowserRouter>
@@ -27,8 +27,8 @@ function App() {
               </Routes>
             </BrowserRouter>
 
-          {/* </div>)
-      } */}
+          </div>)
+      }
 
 
     </div>
