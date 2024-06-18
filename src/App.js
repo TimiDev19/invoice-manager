@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../src/config/firestore'
+import Home from './pages/Home';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import InvoiceDetails from './pages/InvoiceDetails';
+import Login from './pages/Login';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(null)
+  useEffect(() => {
+
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        isAuthenticated != true ? (<Login setIsAuthenticated={setIsAuthenticated}/>) :
+          (<div>
+            <Sidebar />
+
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/invoice/:id' element={<InvoiceDetails />} />
+              </Routes>
+            </BrowserRouter>
+
+          </div>)
+      }
+
+
     </div>
   );
 }
