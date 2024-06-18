@@ -100,7 +100,7 @@ const EditInvoiceModal = ({ setisEditInvoiceModalOpen, invoices, id }) => {
                 return
             }
             setisEditInvoiceModalOpen(false)
-        }} className='absolute z-50 w-full h-[100vh] top-0 left-0 bottom-0 right-0 bg-[#00000080]'>
+        }} className='absolute z-50 w-full h-[100%] top-0 left-0 bottom-0 right-0 bg-[#00000080]'>
             <div className=' bg-white sm:ml-[4%] sm:w-1/3 w-full h-[100vh] rounded-r-lg overflow-y-scroll text-left p-9'>
                 <h1 className=' font-bold text-xl mb-8'> Edit <span className=' text-[#7E88C3]'>#</span>{invoice.id}</h1>
                 <form className=' flex flex-col h-full' onSubmit={handleUpdate}>
@@ -182,7 +182,10 @@ const EditInvoiceModal = ({ setisEditInvoiceModalOpen, invoices, id }) => {
                     <label className=' text-sm mb-2 text-[#7E88C3]'>Project Description</label>
                     <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={description} onChange={e => setdescription(e.target.value)} />
                     {/* <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={status} onChange={e => setstatus(e.target.value)} /> */}
-                    <button>Submit</button>
+                    <div className=' flex items-center justify-between'>
+                        <button className=' p-2 bg-[#7C5DFA] text-white rounded-full'>Save Changes</button>
+                        <button onClick={() => setisEditInvoiceModalOpen(false)} className=' p-2 bg-red-500 text-white rounded-full sm:hidden'>Cancel</button>
+                    </div>
                 </form>
             </div>
 

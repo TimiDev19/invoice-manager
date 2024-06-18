@@ -200,10 +200,10 @@ const InvoiceDetails = () => {
 
                     </div>
 
-                    <div className=' flex items-center justify-center mt-6'>
+                    <div className=' grid grid-cols-2 sm:flex items-center justify-center mt-6'>
                         <div onClick={() => setisEditInvoiceModalOpen(true)} className=' py-2 px-4 mx-2 bg-[#F9FAFE] w-[80px] rounded-full text-center text-sm font-bold text-[#7E88C3] dark:bg-[#252945]'>Edit</div>
                         <div onClick={handleDelete} className=' py-2 px-4 mx-2 bg-[#EC5757] w-fit rounded-full text-center text-sm font-bold text-white'>Delete</div>
-                        <div className=' py-2 px-1 mx-2 bg-[#7C5DFA] w-fit rounded-full text-center text-sm font-bold text-white'>Mark as Paid</div>
+                        <div className=' mt-4 sm:mt-0 py-2 px-1 mx-2 bg-[#7C5DFA] w-fit rounded-full text-center text-sm font-bold text-white'>Mark as Paid</div>
                     </div>
                 </div>
             </div>

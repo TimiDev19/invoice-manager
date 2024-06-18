@@ -24,23 +24,24 @@ const Home = () => {
         getInvoices()
     }, [])
 
-    if (invoices.length == 0) {
+    if (invoices.lengths == 0) {
         return (
             <div className='flex flex-col items-center h-[100vh] w-full bg-[#F8F8FB] dark:bg-[#0C0E16]'>
-                <div className=' w-full'>
-                    <div className=' w-[80%] m-auto flex my-6 justify-between items-center'>
-                        <div className=' text-left'>
-                            <h1 className=' text-3xl font-bold dark:text-white'>Invoices</h1>
-                            <p className=' text-slate-400'>No Invoices</p>
-                        </div>
-                        <div className=' flex items-center justify-end'>
-                            <select className=' mx-5 bg-transparent dark:text-white'>
-                                <option className=''>Filter by status</option>
-                            </select>
-                            <button onClick={() => setAddEmployeeModalOpen(true)} className=' bg-[#7C5DFA] px-3 py-2 rounded-full text-white font-semibold flex items-center justify-center'><div className=' mr-3 h-6 w-6 flex items-center justify-center text-[#7C5DFA] bg-white rounded-full'>+</div>New Invoice</button>
-                        </div>
+                <div className=' w-[80%] m-auto flex my-6 justify-between items-center'>
+                    <div className=' text-left'>
+                        <h1 className=' text-3xl font-bold dark:text-white'>Invoices</h1>
+                        <p className=' text-slate-400 font-semibold'>No Invoices</p>
                     </div>
+                    <div className=' flex items-center justify-end'>
+                        <select className=' mx-5 bg-transparent hidden sm:block dark:text-white'>
+                            <option className=''>Filter by status</option>
+                        </select>
+                        <select className=' mx-5 bg-transparent sm:hidden dark:text-white'>
+                            <option className=''>Filter</option>
+                        </select>
 
+                        <button onClick={() => setAddEmployeeModalOpen(true)} className=' bg-[#7C5DFA] w-fit px-1 py-1 sm:px-3 sm:py-2 text-sm rounded-full text-white font-semibold flex items-center justify-center'><div className=' mr-1 sm:mr-3 h-6 w-6 flex items-center justify-center text-[#7C5DFA] bg-white rounded-full'>+</div>New <span className='hidden sm:block'>Invoice</span></button>
+                    </div>
                 </div>
                 <div>
                     <img className=' w-full mt-24' src={emptyInvoice} />

@@ -168,7 +168,10 @@ const AddEmployeeModal = ({ invoices, setInvoice, setAddEmployeeModalOpen, getIn
                     <label className=' text-sm mb-2 text-[#7E88C3]'>Project Description</label>
                     <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={description} onChange={e => setdescription(e.target.value)} />
                     {/* <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={status} onChange={e => setstatus(e.target.value)} /> */}
-                    <button className=' text-white px-4 py-2  bg-[#7C5DFA] rounded-full w-fit mb-5'>Submit</button>
+                    <div className=' flex items-center justify-between'>
+                        <button className=' p-2 bg-[#7C5DFA] text-white rounded-full'>Add</button>
+                        <button onClick={() => setAddEmployeeModalOpen(false)} className=' p-2 bg-red-500 text-white rounded-full sm:hidden'>Cancel</button>
+                    </div>
                 </form>
             </div>
 

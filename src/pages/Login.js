@@ -24,9 +24,9 @@ const Login = ({ setIsAuthenticated }) => {
     }
     return (
         <div className=' bg-[#F8F8FB] h-[100vh] w-full flex flex-col items-center justify-center'>
-            <div className=' w-full flex flex-col items-center'>
-                <h1 className=' font-semibold text-2xl mb-6 text-[#1E2139]'>Oluwatimilehin Invoice Management Web App</h1>
-                <form onSubmit={handleLogin} className=' bg-white w-[35%] p-8 shadow shadow-slate-300 rounded-3xl m-auto flex flex-col items-start justify-center'>
+            <div className=' w-[90%] m-auto sm:w-full flex flex-col items-center'>
+                <h1 className=' font-semibold text-2xl text-center mb-6 text-[#1E2139]'>Oluwatimilehin Invoice Management Web App</h1>
+                <form onSubmit={handleLogin} className=' bg-white md:w-[35%] p-8 shadow shadow-slate-300 rounded-3xl m-auto flex flex-col items-start justify-center'>
                     <h1 className='text-3xl text-left font-bold mb-4 text-[#7C5DFA]'>Login</h1>
                     <div className=' flex flex-col justify-center items-start w-full'>
                         <label className=' text-left text-[#736a96] mb-2'>Email:</label>
