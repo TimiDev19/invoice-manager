@@ -24,7 +24,6 @@ const InvoiceDetails = () => {
     }, [])
 
 
-    // get the product id from url
     const { id } = useParams()
     console.log(id)
 
@@ -135,15 +134,6 @@ const InvoiceDetails = () => {
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
                 <div className=' sm:hidden bg-white dark:bg-[#1E2139] dark:shadow-none w-full py-8 px-8 mt-5 shadow shadow-slate-200 mb-4 rounded-xl'>
 
                     <div>
@@ -212,17 +202,6 @@ const InvoiceDetails = () => {
             }
         </div>
     }
-    //   return (
-    //     <div>
-    //         {/* {
-    //             if ) {
-
-    //             } else {
-
-    //             }
-    //         } */}
-    //     </div>
-    //   )
 }
 
 export default InvoiceDetails

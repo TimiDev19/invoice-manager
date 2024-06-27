@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../src/config/firestore'
 import Home from './pages/Home';
@@ -14,19 +13,17 @@ function App() {
 
   })
   return (
-    <div className="App">
+    <div className="App max-h-[100vh]">
       {
-        isAuthenticated != true ? (<Login setIsAuthenticated={setIsAuthenticated}/>) :
+        isAuthenticated != true ? (<Login setIsAuthenticated={setIsAuthenticated} />) :
           (<div>
             <Sidebar />
-
             <BrowserRouter>
               <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home setIsAuthenticated={setIsAuthenticated} />} />
                 <Route path='/invoice/:id' element={<InvoiceDetails />} />
               </Routes>
             </BrowserRouter>
-
           </div>)
       }
 

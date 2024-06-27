@@ -3,7 +3,6 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '../config/firestore'
 
 const AddEmployeeModal = ({ invoices, setInvoice, setAddEmployeeModalOpen, getInvoices }) => {
-    // const [invoice, setInvoices] = useState
     const [billFromCity, setbillFromCity] = useState("")
     const [billFromCountry, setbillFromCountry] = useState("")
     const [billFromPostcode, setbillFromPostcode] = useState("")
@@ -65,14 +64,6 @@ const AddEmployeeModal = ({ invoices, setInvoice, setAddEmployeeModalOpen, getIn
             }
 
 
-            // Add a new document with a generated id.
-            // const docRef = await addDoc(collection(db, "invoices"), {
-            //     ...newInvoice
-            // });
-            // console.log("Document written with ID: ", docRef.id);
-
-
-
             invoices.push(newInvoice);
             setAddEmployeeModalOpen(false);
             getInvoices()
@@ -87,8 +78,8 @@ const AddEmployeeModal = ({ invoices, setInvoice, setAddEmployeeModalOpen, getIn
                 return
             }
             setAddEmployeeModalOpen(false)
-        }} className='absolute z-50 w-full h-[100vh] top-0 left-0 bottom-0 right-0 bg-[#00000080]'>
-            <div className=' bg-white sm:ml-[4%] w-full sm:w-2/3 md:w-1/3 h-[100vh] rounded-r-lg overflow-y-scroll text-left p-9'>
+        }} className='absolute z-50 w-full max-h-[100vh] top-0 left-0 bottom-0 right-0 bg-[#00000080]'>
+            <div className=' bg-white sm:ml-[4%] w-full sm:w-2/3 md:w-1/3 h-[100vh] rounded-r-lg overflow-y-scroll text-left p-9 pb-0'>
                 <h1 className=' font-bold text-xl mb-8'>New Invoice</h1>
                 <form onSubmit={handleAdd} className=' flex flex-col h-full'>
                     <h1 className=' text-[#7C5DFA] text-sm font-semibold mb-4'>Bill From</h1>
@@ -167,7 +158,6 @@ const AddEmployeeModal = ({ invoices, setInvoice, setAddEmployeeModalOpen, getIn
 
                     <label className=' text-sm mb-2 text-[#7E88C3]'>Project Description</label>
                     <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={description} onChange={e => setdescription(e.target.value)} />
-                    {/* <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={status} onChange={e => setstatus(e.target.value)} /> */}
                     <div className=' flex items-center justify-between'>
                         <button className=' p-2 bg-[#7C5DFA] text-white rounded-full'>Add</button>
                         <button onClick={() => setAddEmployeeModalOpen(false)} className=' p-2 bg-red-500 text-white rounded-full sm:hidden'>Cancel</button>

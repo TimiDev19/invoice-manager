@@ -6,9 +6,10 @@ import AddEmployeeModal from '../modals/AddEmployeeModal';
 import { Link } from 'react-router-dom';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import emptyInvoice from '../assets/Email campaign_Flatline.png'
+import LogoutModal from '../modals/LogoutModal';
 
-const Home = () => {
-    const [invoices, setInvoices] = useState([]); // Initialize with an empty array
+const Home = ({setIsAuthenticated}) => {
+    const [invoices, setInvoices] = useState([]); 
     const [addEmployeeModalOpen, setAddEmployeeModalOpen] = useState(false)
     const [invoiceModalOpen, setInvoiceModalOpen] = useState(false)
 
@@ -23,6 +24,8 @@ const Home = () => {
     useEffect(() => {
         getInvoices()
     }, [])
+
+    const [logoutOpen, setLogoutOpen] = useState(false)
 
     if (invoices.lengths == 0) {
         return (
@@ -57,16 +60,6 @@ const Home = () => {
 
 
     }
-    // else if (!invoices) {
-    //     return (<div className=' h-[100vh] w-[100vw] flex items-center justify-center'>
-    //         <button type="button" class="bg-indigo-500 flex items-center justify-center p-2 text-white rounded-lg" disabled>
-    //             <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-    //                 <RefreshOutlinedIcon />
-    //             </svg>
-    //             Processing...
-    //         </button>
-    //     </div>)
-    // }
     else {
         return (
             <div className='flex h-[100vh] w-full bg-[#F8F8FB] dark:bg-[#0C0E16]'>
@@ -80,6 +73,7 @@ const Home = () => {
                             <select className=' mx-5 bg-transparent hidden sm:block dark:text-white'>
                                 <option className=''>Filter by status</option>
                             </select>
+                            <button className=' bg-white mx-4 px-3 rounded-full' onClick={() => setLogoutOpen(true)}>Log Out</button>
                             <select className=' mx-5 bg-transparent sm:hidden dark:text-white'>
                                 <option className=''>Filter</option>
                             </select>
@@ -128,7 +122,6 @@ const Home = () => {
                                                 )
                                             }
                                         </div>
-                                        {/* <Link to={`/invoice/${invoice.id}`}><p className=' w-fit text-left'>&gt;</p></Link> */}
                                     </li>
                                 </Link>
 
@@ -138,6 +131,9 @@ const Home = () => {
                     </ul>
                     {
                         addEmployeeModalOpen && <AddEmployeeModal invoices={invoices} getInvoices={getInvoices} setAddEmployeeModalOpen={setAddEmployeeModalOpen} setInvoices={setInvoices} />
+                    }
+                    {
+                        logoutOpen && <LogoutModal setLogoutOpen={setLogoutOpen} setIsAuthenticated={setIsAuthenticated}/>
                     }
                 </div>
 

@@ -181,7 +181,6 @@ const EditInvoiceModal = ({ setisEditInvoiceModalOpen, invoices, id }) => {
 
                     <label className=' text-sm mb-2 text-[#7E88C3]'>Project Description</label>
                     <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={description} onChange={e => setdescription(e.target.value)} />
-                    {/* <input className='border border-[#7E88C3] px-4 py-2 rounded-md focus:outline-none focus:border-[#9277FF] mb-4' type='text' value={status} onChange={e => setstatus(e.target.value)} /> */}
                     <div className=' flex items-center justify-between'>
                         <button className=' p-2 bg-[#7C5DFA] text-white rounded-full'>Save Changes</button>
                         <button onClick={() => setisEditInvoiceModalOpen(false)} className=' p-2 bg-red-500 text-white rounded-full sm:hidden'>Cancel</button>

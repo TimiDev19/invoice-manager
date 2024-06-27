@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import CreateAccountModal from '../modals/CreateAccountModal';
 
-const Login = ({ setIsAuthenticated }) => {
+
+const Login = ({ setIsAuthenticated, }) => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-    // const [authenticated, setIsAuthenticated] = useState(false)
+    const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false)
+
+
 
 
     const handleLogin = async (e) => {
         e.preventDefault()
 
         const auth = getAuth();
+
 
         try {
             await signInWithEmailAndPassword(auth, email, password)
@@ -21,6 +26,9 @@ const Login = ({ setIsAuthenticated }) => {
             console.log(error)
             window.alert("incorrect email / password")
         }
+
+
+
     }
     return (
         <div className=' bg-[#F8F8FB] h-[100vh] w-full flex flex-col items-center justify-center'>
@@ -33,9 +41,20 @@ const Login = ({ setIsAuthenticated }) => {
                         <input className=' border border-[#7E88C3] focus:outline-none focus:border-[#7C5DFA] mb-4 px-4 py-2 rounded-lg w-full' value={email} onChange={e => setEmail(e.target.value)} />
                         <label className=' text-left text-[#7c5dfa] mb-2'>Password:</label>
                         <input className=' border border-[#7E88C3] focus:outline-none focus:border-[#7C5DFA] mb-4 px-4 py-2 rounded-lg w-full' value={password} onChange={e => setPassword(e.target.value)} />
-                        <button className=' px-4 py-2 bg-[#7c5dfa] rounded-full text-white duration-200 hover:opacity-85'>Login</button>
+                        <div className=' flex items-center justify-center'>
+                            <button name='login' className=' px-4 py-2 bg-[#7c5dfa] rounded-full text-white duration-200 hover:opacity-85'>Login</button>
+                            {/* <div onClick={() => setIsCreateAccountOpen(true)} className=' cursor-pointer mx-4 text-blue-700 duration-200 hover:opacity-50'>Don't have an account? Create Account</div> */}
+                            <div onClick={() => setIsCreateAccountOpen(true)} className=' mx-4 text-blue-600 duration-200 cursor-pointer hover:opacity-65'>Create Account</div>
+                            {
+                                console.log(isCreateAccountOpen)
+                            }
+                        </div>
                     </div>
                 </form>
+                    {
+                        isCreateAccountOpen && <CreateAccountModal setIsCreateAccountOpen={setIsCreateAccountOpen} setIsAuthenticated={setIsAuthenticated} />
+                    }
+
             </div>
         </div>
 
